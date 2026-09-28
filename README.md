@@ -1,28 +1,33 @@
 # specilized-agents-skills-from-agency-agents
 
 **279 specialist agent prompts** (`.opencode/agents/*.md`) — a remote, public,
-token-efficient skill library. Any LLM agent on any machine can adopt a
-specialist role with **one HTTP call**. Browse them in a browser at the same URL.
+token-efficient skill library. Any LLM agent on any machine (Freebuff,
+opencode, Claude, anything that can run `curl`) can adopt a specialist role
+with **one HTTP call**. The graphify knowledge graph is served at the same URL.
+
+**Deployed at: `https://specilized-agents-skills-from-agenc.vercel.app`**
 
 ---
 
 ## TL;DR for agents
 
 ```bash
-# 1. Search (returns best-match agent + instructions JSON, ~1-2 KB meta only if you ask)
-curl -s "https://<deployment>/api/agent?q=solidity+smart+contract+audit"
+# 1. Search — returns best-match agent + instructions JSON
+curl -s "https://specilized-agents-skills-from-agenc.vercel.app/api/agent?q=solidity+smart+contract+audit"
 
 # 2. Or fetch a known agent directly as plain markdown
-curl -s "https://<deployment>/api/agent?name=engineering-solidity-smart-contract-engineer&raw=1"
+curl -s "https://specilized-agents-skills-from-agenc.vercel.app/api/agent?name=engineering-solidity-smart-contract-engineer&raw=1"
 ```
 
 System rule to give any LLM agent:
 
 ```
 When a task needs a specialist role, call:
-  curl -s "<deployment>/api/agent?q=<task keywords>"
+  curl -s "https://specilized-agents-skills-from-agenc.vercel.app/api/agent?q=<task keywords>"
 Read the "instructions" field from the JSON and adopt that role.
-If you already know the agent name, call /api/agent?name=<name>&raw=1 instead.
+If you already know the agent name, call
+  https://specilized-agents-skills-from-agenc.vercel.app/api/agent?name=<name>&raw=1
+instead.
 ```
 
 No index reading, no token waste — the server does the search, the agent gets
@@ -34,7 +39,7 @@ only the one markdown file it needs.
 
 | Endpoint | What it returns |
 |----------|----------------|
-| `GET /` | Browser UI — search + browse all agents, click for full markdown |
+| `GET /` | The graphify knowledge graph viewer (`graphify-out/graph.html`, self-contained, search + click to explore) |
 | `GET /api/health` | `{ ok, agents, communities, version }` |
 | `GET /api/agents` | Full `AGENTS_INDEX.json` (279 agents, 63 categories) |
 | `GET /api/categories` | `{ category: [agent names] }` |
@@ -45,19 +50,19 @@ only the one markdown file it needs.
 
 Search is weighted keyword scoring: name ×8, category ×3, title ×4,
 description ×2, stopwords removed. `neighbors` come from the graphify graph
-(`graphify-out/graph.json`), so related agents ride along with every answer.
+(`graphify-out/graph.json`), falling back to same-category agents.
 
 ---
 
-## Run
+## Run (local)
 
 ```bash
 bun install                 # or: npm install
 bun run src/server.ts       # or: npx tsx src/server.ts
-# agent gateway on http://localhost:3000 (graph: 279 agents, 63 categories)
+# agent gateway on http://localhost:3000 (279 agents, 63 categories)
 ```
 
-Open http://localhost:3000 for the UI, or curl the API.
+Open http://localhost:3000 for the graph, or curl the API.
 
 ---
 
@@ -67,30 +72,30 @@ The registry is **generated, never hand-edited**:
 
 ```bash
 node scripts/generate-agents-index.mjs   # rebuilds AGENTS_INDEX.json
+graphify update .                        # rebuilds graphify-out/graph.json + graph.html
 ```
 
-Re-run after adding/removing any `.opencode/agents/*.md`, then commit both.
-Keep `AGENTS_INDEX.json` committed — the server (and any raw-curl fallback
-agent) reads it directly from the repo, no build step required.
+Re-run both after adding/removing any `.opencode/agents/*.md`, then commit.
+Keep `AGENTS_INDEX.json` and `graphify-out/graph.json` committed — the server
+reads them directly from the repo; the Vercel build stages them into the
+lambda bundle (`scripts/build-serverless-data.mjs`), no sandbox needed.
 
 ---
 
 ## Deploy (Vercel, free tier)
 
-Already wired: `vercel.json` (rewrites + CORS), `api/[[...route]].ts`
-(serverless entry), build step regenerates the UI from the template.
+Already wired: `vercel.json` (build command + CORS headers) and
+`api/[[...route]].ts` (serverless entry). The build copies
+`graphify-out/graph.html` → `public/index.html` and stages `AGENTS_INDEX.json`
++ agent markdown + the graphify graph next to the function.
 
 ```bash
 npm i -g vercel && vercel --prod
 # first time: link to a new project, framework preset Other, accept the rest
 ```
 
-After deploy, the URL is the `<deployment>` in the snippets above. Update the
-`rawBase` in `AGENTS_INDEX.json` (regenerate via the index script) only if the
-repo moves.
-
-Vercel serves this as a static+serverless app. After deploy, the public URL is
-the `<deployment>` in the snippets above. The repo also works fully offline:
+The public URL is `https://specilized-agents-skills-from-agenc.vercel.app`
+(production domain — redeploying keeps it). The repo also works fully offline:
 `AGENTS_INDEX.json` + raw GitHub URLs are the zero-dependency fallback:
 
 ```
@@ -102,12 +107,14 @@ https://raw.githubusercontent.com/FYP-DESK/specilized-agents-skills-from-agency-
 
 ## Graphify
 
-The graphify knowledge graph (`graphify-out/`, gitignored artifacts excluded)
-indexes the agent files; its neighbor edges power the "related agents" data.
-Rebuild after registry changes:
+The graphify knowledge graph (`graphify-out/`) indexes the agent files. Its
+generated `graph.html` — fully self-contained, data embedded — is what gets
+served at `/`. The graph edges power the `neighbors` data on every
+`/api/agent` answer. Rebuild after registry changes:
 
 ```bash
 graphify update .
+node scripts/build-graph-html.mjs   # refreshes public/index.html (local only; Vercel build does this too)
 ```
 
 ---

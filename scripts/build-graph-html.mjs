@@ -1,19 +1,22 @@
-// Build public/index.html from public/graph.html.tmpl by injecting AGENTS_INDEX.json
-// as __DATA__. Zero dependencies. Run: node scripts/build-graph-html.mjs
+// Build the public graph viewer:
+//   public/index.html  <-  graphify-out/graph.html (copied verbatim)
+//
+// graph.html is self-contained (graph data embedded inline; only vis-network
+// comes from a CDN), so graphify's own output is served as-is at '/' — no
+// custom UI needed.
+//
+// Zero dependencies. Run: node scripts/build-graph-html.mjs
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const tmplPath = path.join(root, "public", "graph.html.tmpl");
-const outPath = path.join(root, "public", "index.html");
+const src = path.join(root, "graphify-out", "graph.html");
+const outDir = path.join(root, "public");
+const outPath = path.join(outDir, "index.html");
 
-const tmpl = fs.readFileSync(tmplPath, "utf8");
-const data = fs.readFileSync(path.join(root, "AGENTS_INDEX.json"), "utf8");
+fs.mkdirSync(outDir, { recursive: true });
+fs.copyFileSync(src, outPath);
 
-// JSON is inserted as a JS object literal — safe because the JSON.stringify
-// output never contains "</script" (agent descriptions are plain text).
-fs.writeFileSync(outPath, tmpl.replace("__DATA__", data.trim()));
-
-console.log(`public/index.html built (${(fs.statSync(outPath).size / 1024).toFixed(0)} KB).`);
+console.log(`public/index.html built from graphify-out/graph.html (${(fs.statSync(outPath).size / 1024).toFixed(0)} KB).`);

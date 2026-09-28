@@ -56,11 +56,18 @@ export function buildGraph(root: string): AgentGraph {
   // graphify neighbor data (built by `graphify update .`); optional but enriches results.
   // graph.json is node-link format (nodes/links); agent file-level nodes have
   // labels ending in .md. Cross-file links are rare — when missing, neighbors
-  // fall back to same-category agents. In serverless bundles the graph is not
-  // shipped (cold-start size), so this silently skips there.
+  // fall back to same-category agents. Lookup order: the staged serverless
+  // bundle (api/_data/graphify-graph.json, copied by
+  // scripts/build-serverless-data.mjs) first, then the repo layout
+  // (graphify-out/graph.json). If neither exists, this silently skips.
   let neighborsByName = new Map<string, string[]>();
-  const gp = path.join(root, "graphify-out", "graph.json");
-  try {
+  const graphPaths = [
+    path.join(root, "graphify-graph.json"), // staged serverless bundle
+    path.join(root, "graphify-out", "graph.json"), // repo layout
+  ];
+  const gp = graphPaths.find((p) => existsSync(p));
+  if (gp) {
+    try {
     const g = JSON.parse(readFileSync(gp, "utf8")) as GraphifyGraph;
     const fileId = new Map<string, string>(); // "engineering-foo.md" -> node id
     for (const n of g.nodes ?? []) {
@@ -94,8 +101,9 @@ export function buildGraph(root: string): AgentGraph {
       }
     }
     neighborsByName = new Map([...adj.entries()].map(([k, v]) => [k, [...v].slice(0, 8)]));
-  } catch {
-    // graph not built yet — neighbors stay empty, search still works
+    } catch {
+      // graph unreadable — neighbors stay empty, search still works
+    }
   }
 
   const nodes: AgentNode[] = (idx.agents ?? []).map((raw: RawIndexEntry) => ({

@@ -1,39 +1,51 @@
 // The Elysia app, runtime-agnostic: imported by src/server.ts (local listen)
 // and api/[[...route]].ts (Vercel serverless). No .listen() here.
 //
-// Data resolution order:
+// IMPORTANT: relative imports must keep explicit .js extensions. Vercel
+// compiles this TS to ESM JS and runs it on the Node runtime, which refuses
+// extensionless relative imports — that was the FUNCTION_INVOCATION_FAILED
+// cause ("Cannot find module '/var/task/src/app'"). Bun resolves .js -> .ts,
+// so local dev under bun is unaffected.
+//
+// Data resolution order (first directory containing AGENTS_INDEX.json wins):
 //   1. AGENTS_ROOT env var (explicit override)
-//   2. api/_data bundle (staged by scripts/build-serverless-data.mjs on Vercel)
-//   3. repo root (local dev; graphify neighbors included)
+//   2. api/_data bundle next to the compiled entry (staged by
+//      scripts/build-serverless-data.mjs on Vercel: AGENTS_INDEX.json,
+//      agents/*.md, graphify-out/graph.json)
+//   3. repo root (local dev: real graphify neighbors + .opencode/agents)
 
 import path from "node:path";
 import { existsSync, readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { Elysia } from "elysia";
 
-import { buildGraph, searchAgents, agentMarkdownPath } from "./search";
+import { buildGraph, searchAgents, agentMarkdownPath } from "./search.js";
 
 const MARKER = "AGENTS_INDEX.json";
+
+const entryDir = path.dirname(fileURLToPath(import.meta.url));
 
 function findRoot(): string {
   if (process.env.AGENTS_ROOT && existsSync(path.join(process.env.AGENTS_ROOT, MARKER))) {
     return process.env.AGENTS_ROOT;
   }
-  // Vercel function bundle: cwd is /var/task/player/<...>/ (deploy output),
-  // the staged bundle sits at api/_data relative to the repo layout.
-  const cwd = process.cwd();
-  const staged = path.resolve(cwd, "api/_data");
-  if (existsSync(path.join(staged, MARKER))) return staged;
-  // Local dev: repo root is one or two levels up from src/.
-  for (const candidate of [cwd, path.resolve(cwd, "..")]) {
+  // Vercel lambda: entry is api/[[...route]].js under the task root, so the
+  // staged bundle sits at api/_data — deterministic, regardless of cwd.
+  for (const candidate of [
+    path.resolve(entryDir, "_data"),
+    path.resolve(entryDir, "..", "api", "_data"),
+    path.resolve(entryDir, ".."),
+    process.cwd(),
+  ]) {
     if (existsSync(path.join(candidate, MARKER))) return candidate;
   }
-  // Last resort: walk up.
-  let dir = cwd;
+  // Last resort: walk up from cwd.
+  let dir = process.cwd();
   for (let i = 0; i < 8 && dir !== path.parse(dir).root; i++) {
     if (existsSync(path.join(dir, MARKER))) return dir;
     dir = path.resolve(dir, "..");
   }
-  return cwd;
+  return process.cwd();
 }
 
 const root = findRoot();
@@ -46,24 +58,22 @@ function errorJson(status: number, message: string, hint?: string) {
 
 const app = new Elysia()
   .get("/", () => {
-    // On Vercel the static public/index.html wins before this route; locally
-    // this serves the built UI (run `bun run ui` once after cloning).
-    const file = path.join(root, "public", "index.html");
-    if (!existsSync(file)) {
-      const staticFile = path.join(root, "..", "public", "index.html");
-      if (existsSync(staticFile)) {
-        return new Response(readFileSync(staticFile), {
+    // On Vercel the static public/index.html (graphify graph viewer) is
+    // served before this route; this is a fallback + local-dev path.
+    for (const file of [
+      path.resolve(entryDir, "..", "public", "index.html"),
+      path.join(root, "public", "index.html"),
+    ]) {
+      if (existsSync(file)) {
+        return new Response(readFileSync(file), {
           headers: { "content-type": "text/html; charset=utf-8" },
         });
       }
-      return new Response(
-        "<p>UI not built yet. Run <code>node scripts/build-graph-html.mjs</code> in the repo, then restart.</p>",
-        { headers: { "content-type": "text/html; charset=utf-8" } },
-      );
     }
-    return new Response(readFileSync(file), {
-      headers: { "content-type": "text/html; charset=utf-8" },
-    });
+    return new Response(
+      "<p>Graph UI not built. Run <code>node scripts/build-graph-html.mjs</code> in the repo, then restart.</p>",
+      { headers: { "content-type": "text/html; charset=utf-8" } },
+    );
   })
 
   .get("/api/health", () => ({
