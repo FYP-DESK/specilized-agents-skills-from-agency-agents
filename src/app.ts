@@ -76,6 +76,18 @@ const app = new Elysia()
     );
   })
 
+  // CORS preflight: vercel.json attaches Access-Control-Allow-Origin at the
+  // edge; this provides the methods/max-age so browsers preflight cleanly.
+  .options("/api/*", () =>
+    new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS",
+        "Access-Control-Max-Age": "86400",
+      },
+    }),
+  )
+
   .get("/api/health", () => ({
     ok: true,
     agents: graph.nodes.length,

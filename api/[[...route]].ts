@@ -7,17 +7,24 @@
 // cause ("Cannot find module '/var/task/src/app'"). Bun resolves .js -> .ts,
 // so local dev under bun is unaffected.
 //
-// app.handle is invoked through an arrow wrapper so it stays bound to the
-// app instance. The data it reads (AGENTS_INDEX.json, agents/*.md,
-// graphify-out/graph.json) is staged into api/_data by
-// scripts/build-serverless-data.mjs during the build command.
+// NOTE: only NAMED HTTP-method exports are used here (GET, POST, ...). The
+// default export has the Node signature `(req, res) => void`, which ignores
+// returned Responses — Vercel warns about it and any fallthrough request
+// (e.g. OPTIONS) would get an empty reply. app.handle() works with every
+// method, so each named export just forwards to it.
+//
+// The data it reads (AGENTS_INDEX.json, agents/*.md, graphify graph) is
+// staged into api/_data by scripts/build-serverless-data.mjs during the
+// build command.
 
 import { app } from "../src/app.js";
 
-export default async function handler(request: Request) {
-  return app.handle(request);
-}
+const handler = (request: Request) => app.handle(request);
 
 export const GET = handler;
 export const POST = handler;
+export const PUT = handler;
+export const PATCH = handler;
+export const DELETE = handler;
 export const HEAD = handler;
+export const OPTIONS = handler;
