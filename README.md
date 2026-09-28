@@ -77,9 +77,17 @@ agent) reads it directly from the repo, no build step required.
 
 ## Deploy (Vercel, free tier)
 
+Already wired: `vercel.json` (rewrites + CORS), `api/[[...route]].ts`
+(serverless entry), build step regenerates the UI from the template.
+
 ```bash
-npm i -g vercel && vercel      # framework preset: Other, no build command needed
+npm i -g vercel && vercel --prod
+# first time: link to a new project, framework preset Other, accept the rest
 ```
+
+After deploy, the URL is the `<deployment>` in the snippets above. Update the
+`rawBase` in `AGENTS_INDEX.json` (regenerate via the index script) only if the
+repo moves.
 
 Vercel serves this as a static+serverless app. After deploy, the public URL is
 the `<deployment>` in the snippets above. The repo also works fully offline:
