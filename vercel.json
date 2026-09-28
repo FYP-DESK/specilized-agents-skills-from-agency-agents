@@ -3,11 +3,6 @@
   "framework": null,
   "buildCommand": "node scripts/build-graph-html.mjs",
   "outputDirectory": "public",
-  "cleanUrls": true,
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/api" }],
-  "functions": {
-    "api/**/*": { "memory": 1024, "maxDuration": 15 }
-  },
   "headers": [
     {
       "source": "/api/(.*)",

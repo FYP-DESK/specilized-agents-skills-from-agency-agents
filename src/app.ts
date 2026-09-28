@@ -11,12 +11,10 @@ import { buildGraph, searchAgents, agentMarkdownPath } from "./search";
 // bundle). The marker file AGENTS_INDEX.json is always at the root.
 function findRoot(): string {
   const marker = "AGENTS_INDEX.json";
-  const here = path.dirname(fileURLToPathSafe());
   const candidates = [
     process.env.AGENTS_ROOT,
     process.cwd(),
-    path.resolve(here, ".."),
-    here,
+    path.resolve(process.cwd(), ".."),
   ].filter(Boolean) as string[];
   for (const c of candidates) {
     if (existsSync(path.join(c, marker))) return c;
@@ -29,15 +27,6 @@ function findRoot(): string {
   return process.cwd();
 }
 
-function fileURLToPathSafe(): string {
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require("node:url").fileURLToPath(import.meta.url);
-  } catch {
-    return process.cwd();
-  }
-}
-
 const root = findRoot();
 const graph = buildGraph(root);
 const byName = new Map(graph.nodes.map((n) => [n.name, n]));
@@ -48,7 +37,15 @@ function errorJson(status: number, message: string, hint?: string) {
 
 const app = new Elysia()
   .get("/", () => {
-    const file = path.join(root, "public", "graph.html");
+    // On Vercel the static public/index.html wins before this route; locally
+    // this serves the built UI (run `bun run ui` once after cloning).
+    const file = path.join(root, "public", "index.html");
+    if (!existsSync(file)) {
+      return new Response(
+        "<p>UI not built yet. Run <code>node scripts/build-graph-html.mjs</code> in the repo, then restart.</p>",
+        { headers: { "content-type": "text/html; charset=utf-8" } },
+      );
+    }
     return new Response(readFileSync(file), {
       headers: { "content-type": "text/html; charset=utf-8" },
     });
@@ -101,13 +98,12 @@ const app = new Elysia()
       return errorJson(400, "missing query", "pass ?name=<agent> or ?q=<task keywords>");
     }
 
-    const ranked = searchAgents(graph, q, 5);
-    if (ranked.length === 0) {
+    const [best] = searchAgents(graph, q, 5);
+    if (!best) {
       set.status = 404;
       return errorJson(404, `no agent matches '${query.q}'`, "try shorter or broader keywords, or GET /api/categories");
     }
 
-    const best = ranked[0];
     const instructions = readFileSync(agentMarkdownPath(root, best.name), "utf8");
 
     if (raw) {
@@ -124,7 +120,7 @@ const app = new Elysia()
       description: best.description,
       score: Number(best.score.toFixed(4)),
       neighbors: byName.get(best.name)?.neighbors ?? [],
-      alternates: ranked.slice(1, 4).map((r) => ({ name: r.name, score: Number(r.score.toFixed(4)), description: r.description })),
+      alternates: searchAgents(graph, q, 4).slice(1).map((r) => ({ name: r.name, score: Number(r.score.toFixed(4)), description: r.description })),
       instructions,
     };
   });

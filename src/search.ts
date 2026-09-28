@@ -14,6 +14,30 @@ export type AgentNode = {
   neighbors: string[];
 };
 
+type GraphifyNode = {
+  id?: unknown;
+  label?: unknown;
+  file_type?: unknown;
+};
+
+type GraphifyLink = {
+  source?: unknown;
+  target?: unknown;
+};
+
+type GraphifyGraph = {
+  nodes?: GraphifyNode[];
+  links?: GraphifyLink[];
+};
+
+type RawIndexEntry = {
+  name?: unknown;
+  title?: unknown;
+  category?: unknown;
+  description?: unknown;
+  path?: unknown;
+};
+
 export type AgentGraph = {
   nodes: AgentNode[];
   categories: Record<string, string[]>;
@@ -36,22 +60,31 @@ export function buildGraph(root: string): AgentGraph {
   let neighborsByName = new Map<string, string[]>();
   const gp = path.join(root, "graphify-out", "graph.json");
   try {
-    const g = JSON.parse(readFileSync(gp, "utf8"));
+    const g = JSON.parse(readFileSync(gp, "utf8")) as GraphifyGraph;
     const fileId = new Map<string, string>(); // "engineering-foo.md" -> node id
     for (const n of g.nodes ?? []) {
-      if (n.file_type === "document" && typeof n.label === "string" && n.label.endsWith(".md")) {
+      if (
+        n.file_type === "document" &&
+        typeof n.label === "string" &&
+        typeof n.id === "string" &&
+        n.label.endsWith(".md")
+      ) {
         fileId.set(n.label, n.id);
       }
     }
-    const byId = new Map((g.nodes ?? []).map((n) => [n.id, n]));
+    const byId = new Map<string, GraphifyNode>();
+    for (const n of g.nodes ?? []) {
+      if (typeof n.id === "string") byId.set(n.id, n);
+    }
     const adj = new Map<string, Set<string>>();
-    const nameOf = (id: string) => {
+    const nameOf = (id: string): string => {
       const n = byId.get(id);
-      return n ? String(n.label).replace(/\.md$/, "") : "";
+      return n && typeof n.label === "string" ? n.label.replace(/\.md$/, "") : "";
     };
     for (const l of g.links ?? []) {
-      const a = nameOf(String(l.source));
-      const b = nameOf(String(l.target));
+      if (typeof l.source !== "string" || typeof l.target !== "string") continue;
+      const a = nameOf(l.source);
+      const b = nameOf(l.target);
       if (a && b && a !== b && fileId.has(`${a}.md`) && fileId.has(`${b}.md`)) {
         if (!adj.has(a)) adj.set(a, new Set());
         if (!adj.has(b)) adj.set(b, new Set());
@@ -64,9 +97,13 @@ export function buildGraph(root: string): AgentGraph {
     // graph not built yet — neighbors stay empty, search still works
   }
 
-  const nodes: AgentNode[] = (idx.agents ?? []).map((a: Omit<AgentNode, "neighbors">) => ({
-    ...a,
-    neighbors: neighborsByName.get(a.name) ?? [],
+  const nodes: AgentNode[] = (idx.agents ?? []).map((raw: RawIndexEntry) => ({
+    name: String(raw.name ?? ""),
+    title: String(raw.title ?? raw.name ?? ""),
+    category: String(raw.category ?? "general"),
+    description: String(raw.description ?? ""),
+    path: String(raw.path ?? ""),
+    neighbors: neighborsByName.get(String(raw.name ?? "")) ?? [],
   }));
 
   const categories: Record<string, string[]> = {};

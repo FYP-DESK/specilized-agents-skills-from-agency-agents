@@ -10,7 +10,8 @@
     "dev": "bun run src/server.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "elysia": "^1.4.30"
