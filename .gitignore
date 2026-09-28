@@ -35,3 +35,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # app build artifacts
 public/graph.html
+
+# graphify build cache (graph.json / GRAPH_REPORT.md stay committed)
+graphify-out/cache/
+graphify-out/.graphify*
