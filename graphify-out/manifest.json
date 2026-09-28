@@ -1,0 +1,1724 @@
+{
+  "AGENTS_INDEX.json": {
+    "mtime": 1790594658.0838752,
+    "seen": 1790594917.4891572,
+    "ast_hash": "521c60d458271babe0848747ef888317",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1790594885.134782,
+    "seen": 1790594917.4891655,
+    "ast_hash": "903b7914a2e5490e0ec9ec9a094520d8",
+    "semantic_hash": ""
+  },
+  "scripts/build-graph-html.mjs": {
+    "mtime": 1790594885.1881313,
+    "seen": 1790594917.4891696,
+    "ast_hash": "89ee0a5828cf25634966291dd5399d04",
+    "semantic_hash": ""
+  },
+  "scripts/generate-agents-index.mjs": {
+    "mtime": 1790594651.5659115,
+    "seen": 1790594917.4891725,
+    "ast_hash": "f36cee8f3d11294a91e3294e2ea95c03",
+    "semantic_hash": ""
+  },
+  "src/search.ts": {
+    "mtime": 1790594785.7959995,
+    "seen": 1790594917.4891753,
+    "ast_hash": "4d72e9c05527b6ed8b5eb5a45cb2aa9b",
+    "semantic_hash": ""
+  },
+  "src/server.ts": {
+    "mtime": 1790594785.7879996,
+    "seen": 1790594917.489178,
+    "ast_hash": "34bb88bbc06cf1c9e2ff350fcf2889e2",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1790594700.0566208,
+    "seen": 1790594917.489181,
+    "ast_hash": "b1f6bb4129739fd7ec8529de1ccf7216",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/academic-anthropologist.md": {
+    "mtime": 1790584912.2789,
+    "seen": 1790594917.4891834,
+    "ast_hash": "3c50719275e16770b07080fe385ce706",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/academic-geographer.md": {
+    "mtime": 1790584912.3018978,
+    "seen": 1790594917.4891858,
+    "ast_hash": "81a860c1d1ac29ba70c69432e8503359",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/academic-historian.md": {
+    "mtime": 1790584912.3208961,
+    "seen": 1790594917.4891887,
+    "ast_hash": "06ac97f18a790ab2fa92cacaa8be546a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/academic-narratologist.md": {
+    "mtime": 1790584912.3388944,
+    "seen": 1790594917.4891908,
+    "ast_hash": "b7df99ab3609d7c0ae633b9809cfcb80",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/academic-psychologist.md": {
+    "mtime": 1790584912.363892,
+    "seen": 1790594917.489194,
+    "ast_hash": "6ff6693d21b07a6edc576e553d023857",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/academic-statistician.md": {
+    "mtime": 1790584912.395889,
+    "seen": 1790594917.4891965,
+    "ast_hash": "0d836ee046190fb488cfd77a0d393ef6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/accounts-payable-agent.md": {
+    "mtime": 1790584916.1015446,
+    "seen": 1790594917.489199,
+    "ast_hash": "757d64cad2ada2d0e2c7a3047c1e1e18",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/agentic-identity-trust.md": {
+    "mtime": 1790584916.1145434,
+    "seen": 1790594917.4892013,
+    "ast_hash": "bcaec8cd9844e546fb3bcce4e87391d1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/agents-orchestrator.md": {
+    "mtime": 1790584916.1295419,
+    "seen": 1790594917.4892037,
+    "ast_hash": "0ebf290898ab681eb8eab1909d815a77",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/automation-governance-architect.md": {
+    "mtime": 1790584916.1445405,
+    "seen": 1790594917.4892063,
+    "ast_hash": "066e76fa62ea03c0c1ad6aeca8856c18",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/blender-addon-engineer.md": {
+    "mtime": 1790584913.9347453,
+    "seen": 1790594917.489209,
+    "ast_hash": "67236bfe2a58d41cdba54092e53b04a1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/business-strategist.md": {
+    "mtime": 1790584916.1585393,
+    "seen": 1790594917.489211,
+    "ast_hash": "350ba530fdb928adc0f2702c80d5f9cf",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/change-management-consultant.md": {
+    "mtime": 1790584916.172538,
+    "seen": 1790594917.4892137,
+    "ast_hash": "d51f409bc18e2234fd38100c950f4659",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/chief-financial-officer.md": {
+    "mtime": 1790584916.1865368,
+    "seen": 1790594917.4892163,
+    "ast_hash": "e44ce15f57c1ac193abd9371586b2037",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/corporate-training-designer.md": {
+    "mtime": 1790584916.2005355,
+    "seen": 1790594917.4892187,
+    "ast_hash": "0628ee2e4d7afffd68540d8f0cf4d9ea",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/customer-service.md": {
+    "mtime": 1790584916.215534,
+    "seen": 1790594917.4892218,
+    "ast_hash": "b4268c614c76eee91d846c3f9c213840",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/customer-success-manager.md": {
+    "mtime": 1790584916.2305326,
+    "seen": 1790594917.4892242,
+    "ast_hash": "e51df0471c9e967f70d114913fb86f75",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/data-consolidation-agent.md": {
+    "mtime": 1790584916.2445314,
+    "seen": 1790594917.4892268,
+    "ast_hash": "023daa2ec414b57d1823568a68929049",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/data-privacy-officer.md": {
+    "mtime": 1790584916.2585301,
+    "seen": 1790594917.489229,
+    "ast_hash": "a4de7fee675ab31e139c3a93b8238ec0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-brand-guardian.md": {
+    "mtime": 1790584912.418887,
+    "seen": 1790594917.4892316,
+    "ast_hash": "f0e279fed20f841be27f72dd8cdf5abe",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-image-prompt-engineer.md": {
+    "mtime": 1790584912.470882,
+    "seen": 1790594917.4892342,
+    "ast_hash": "edcc666531987ccc66b486e056156bd0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-inclusive-visuals-specialist.md": {
+    "mtime": 1790584912.4898803,
+    "seen": 1790594917.4892368,
+    "ast_hash": "863f6c1e8dc8f29c5613880fe14e6ee4",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-persona-walkthrough.md": {
+    "mtime": 1790584912.5228772,
+    "seen": 1790594917.489239,
+    "ast_hash": "1fb731c6c9ea1851f3fa00952c2943c7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-ui-designer.md": {
+    "mtime": 1790584912.6248677,
+    "seen": 1790594917.4892414,
+    "ast_hash": "a54921757ccd7c1a2f96421800815ccc",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-ui-finish-gate-reviewer.md": {
+    "mtime": 1790584912.6488655,
+    "seen": 1790594917.489244,
+    "ast_hash": "1e9a6ab817e345b0031ac78dbc791534",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-ux-architect.md": {
+    "mtime": 1790584912.6678636,
+    "seen": 1790594917.4892464,
+    "ast_hash": "7afe51e08227692ad44246a45d4ca2c2",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-ux-researcher.md": {
+    "mtime": 1790584912.6858618,
+    "seen": 1790594917.489249,
+    "ast_hash": "1aee4c32fe51183e956f4a7c19dc52c4",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-visual-storyteller.md": {
+    "mtime": 1790584912.7038603,
+    "seen": 1790594917.4892516,
+    "ast_hash": "dcd5ce7882aa02b89b3946842eafc540",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/design-whimsy-injector.md": {
+    "mtime": 1790584912.7238584,
+    "seen": 1790594917.489254,
+    "ast_hash": "9ff07395a5549331c4f586089967846c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/economy-designer.md": {
+    "mtime": 1790584913.950744,
+    "seen": 1790594917.4892561,
+    "ast_hash": "5240d1e0cea2af3b2bbdaa390b71f4cd",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-ai-data-remediation-engineer.md": {
+    "mtime": 1790584912.7438564,
+    "seen": 1790594917.4892588,
+    "ast_hash": "1dcccfa442f2e99423a49b890b1fed0f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-ai-engineer.md": {
+    "mtime": 1790584912.7628548,
+    "seen": 1790594917.4892612,
+    "ast_hash": "6757fe31156b47cbaf65ca098fd7a1e1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-api-platform-engineer.md": {
+    "mtime": 1790584912.781853,
+    "seen": 1790594917.4892635,
+    "ast_hash": "c6c6864165d3bb56dba9e02171277973",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-ats-validator-architect.md": {
+    "mtime": 1790584912.801851,
+    "seen": 1790594917.489266,
+    "ast_hash": "c737f526d469d4423e69c2be5897684d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-autonomous-optimization-architect.md": {
+    "mtime": 1790584912.8198495,
+    "seen": 1790594917.4892685,
+    "ast_hash": "ad8cadf48315c0038804c3ac22de00e1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-backend-architect.md": {
+    "mtime": 1790584912.8398476,
+    "seen": 1790594917.4892707,
+    "ast_hash": "dba4047eae432123a1bc8c69601210a3",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-china-network-engineer.md": {
+    "mtime": 1790584912.8598456,
+    "seen": 1790594917.4892757,
+    "ast_hash": "fccfbfc7a2b294b0c285b1a83ff5d58f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-cms-developer.md": {
+    "mtime": 1790584912.8808436,
+    "seen": 1790594917.4892783,
+    "ast_hash": "6b7aecdb265095d1cf10ca4d89a52c77",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-code-reviewer.md": {
+    "mtime": 1790584912.8968422,
+    "seen": 1790594917.4892807,
+    "ast_hash": "5f6e1969515798d135dd5f925e4e2acc",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-codebase-onboarding-engineer.md": {
+    "mtime": 1790584912.9128406,
+    "seen": 1790594917.4892833,
+    "ast_hash": "51eb5f1d3b16122a4a475a10bde9bacd",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-data-engineer.md": {
+    "mtime": 1790584912.9288392,
+    "seen": 1790594917.4892857,
+    "ast_hash": "a13cf2b0e240906a2d5a58c235273b02",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-data-visualization-engineer.md": {
+    "mtime": 1790584912.9458375,
+    "seen": 1790594917.4892879,
+    "ast_hash": "27c79b929253ef7399e04bbfd481b3ce",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-database-optimizer.md": {
+    "mtime": 1790584912.961836,
+    "seen": 1790594917.4892905,
+    "ast_hash": "a98162e7f3a2a15724ba1b808206966b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-database-reliability-engineer.md": {
+    "mtime": 1790584912.9798343,
+    "seen": 1790594917.489293,
+    "ast_hash": "8d30e9093460eedb5aba859f24c5d691",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-desktop-app-engineer.md": {
+    "mtime": 1790584912.994833,
+    "seen": 1790594917.4892952,
+    "ast_hash": "e65e01bf3f643f355b3eed0b30626af6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-developer-tooling-engineer.md": {
+    "mtime": 1790584913.0108316,
+    "seen": 1790594917.4892979,
+    "ast_hash": "91576b58cc61ee09d931da40bcf2eb77",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-devops-automator.md": {
+    "mtime": 1790584913.0288298,
+    "seen": 1790594917.4893003,
+    "ast_hash": "b08fdc582de92ad3d48f205cb96af50f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-drupal-performance.md": {
+    "mtime": 1790584913.0458283,
+    "seen": 1790594917.4893029,
+    "ast_hash": "b3bae2160d6b52c112d38e79249608e9",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-drupal-shopping-cart.md": {
+    "mtime": 1790584913.0628266,
+    "seen": 1790594917.489305,
+    "ast_hash": "c7aaeb9ebdd746d392b4c1150ffb49aa",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-email-intelligence-engineer.md": {
+    "mtime": 1790584913.0788252,
+    "seen": 1790594917.4893076,
+    "ast_hash": "a4bf58357b3bedb7bfe5e1354bfd3612",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-embedded-firmware-engineer.md": {
+    "mtime": 1790584913.0948236,
+    "seen": 1790594917.4893103,
+    "ast_hash": "e171bd729ff8423456ba2512968dbffb",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-feishu-integration-developer.md": {
+    "mtime": 1790584913.1108222,
+    "seen": 1790594917.4893217,
+    "ast_hash": "b65bab5c5e7802d6b0ddcf448600d7e9",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-filament-optimization-specialist.md": {
+    "mtime": 1790584913.1268208,
+    "seen": 1790594917.4893248,
+    "ast_hash": "909fe24620fff7594453c1950563c016",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-finops-engineer.md": {
+    "mtime": 1790584913.1428192,
+    "seen": 1790594917.4893274,
+    "ast_hash": "561256d71cfafb1a33fb6c23f1705921",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-frontend-developer.md": {
+    "mtime": 1790584913.1788158,
+    "seen": 1790594917.4893296,
+    "ast_hash": "55b04d66fe4937d5ab08c61e0a7a9981",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-gaussdb-expert.md": {
+    "mtime": 1790584913.2048135,
+    "seen": 1790594917.4893322,
+    "ast_hash": "88447928517b5d0b627683b761a8b6e7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-git-workflow-master.md": {
+    "mtime": 1790584913.2198122,
+    "seen": 1790594917.4893346,
+    "ast_hash": "411f1df7b923364ebf471f0bea28a279",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-i18n-engineer.md": {
+    "mtime": 1790584913.2338107,
+    "seen": 1790594917.4893372,
+    "ast_hash": "1325e022738fe8c719a686e879a1dcaf",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-identity-access-engineer.md": {
+    "mtime": 1790584913.2478094,
+    "seen": 1790594917.4893396,
+    "ast_hash": "1490c702d9a6baae2b20e6bbc38b1601",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-incident-response-commander.md": {
+    "mtime": 1790584913.262808,
+    "seen": 1790594917.489342,
+    "ast_hash": "e36deb9f1b626b5f7eb95ba65824fb30",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-iot-fleet-engineer.md": {
+    "mtime": 1790584913.2778068,
+    "seen": 1790594917.4893446,
+    "ast_hash": "25027699b740128a88ff8aedd873a96d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-it-service-manager.md": {
+    "mtime": 1790584913.2928052,
+    "seen": 1790594917.4893467,
+    "ast_hash": "2cf631d4160c77b4513901c4decbc0aa",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-knowledge-graph-engineer.md": {
+    "mtime": 1790584913.3078039,
+    "seen": 1790594917.4893494,
+    "ast_hash": "449674ff243c5d703fe6507eeb12c62a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-llm-post-training-engineer.md": {
+    "mtime": 1790584913.3228025,
+    "seen": 1790594917.489352,
+    "ast_hash": "eba924cb2f26edc462f9f49f8072d4ae",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-minimal-change-engineer.md": {
+    "mtime": 1790584913.337801,
+    "seen": 1790594917.4893546,
+    "ast_hash": "771c5b35e603ca8940cb394c5e07244f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-mobile-app-builder.md": {
+    "mtime": 1790584913.3517997,
+    "seen": 1790594917.4893568,
+    "ast_hash": "ca94d4c38eb315313a094bc13f41b4c0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-mobile-release-engineer.md": {
+    "mtime": 1790584913.3667984,
+    "seen": 1790594917.4893594,
+    "ast_hash": "0c4f4db7728523124cd5f1d4f07c89f4",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-multi-agent-systems-architect.md": {
+    "mtime": 1790584913.3817968,
+    "seen": 1790594917.4893618,
+    "ast_hash": "c194c3cbd0062b8b226721dd51811fba",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-network-engineer.md": {
+    "mtime": 1790584913.3977954,
+    "seen": 1790594917.4893644,
+    "ast_hash": "85fa1718cb79dccb3a8a535e7e7c26cd",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-orgscript-engineer.md": {
+    "mtime": 1790584913.413794,
+    "seen": 1790594917.4893668,
+    "ast_hash": "81fb3c4d15af591be8536dc43626cf13",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-payments-billing-engineer.md": {
+    "mtime": 1790584913.4287925,
+    "seen": 1790594917.4893694,
+    "ast_hash": "3e5b0b79b4f637b1ac9efb964730af86",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-pdf-engine-architect.md": {
+    "mtime": 1790584913.444791,
+    "seen": 1790594917.4893723,
+    "ast_hash": "bef616a49f99ff7979a2a3021d088a4b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-platform-engineer.md": {
+    "mtime": 1790584913.4597898,
+    "seen": 1790594917.4893746,
+    "ast_hash": "a97857ee596175449f1026656d5d5dbc",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-privacy-engineer.md": {
+    "mtime": 1790584913.4737883,
+    "seen": 1790594917.4893773,
+    "ast_hash": "0f4ca25c28d515d03c8f8787486d18d3",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-prompt-engineer.md": {
+    "mtime": 1790584913.488787,
+    "seen": 1790594917.48938,
+    "ast_hash": "c50d0abb9b2667b2acbb726bf7956ddf",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-rag-pipeline-engineer.md": {
+    "mtime": 1790584913.5037856,
+    "seen": 1790594917.489382,
+    "ast_hash": "7ed0d10c761efda977c6fd2d84a758f5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-rapid-prototyper.md": {
+    "mtime": 1790584913.5267835,
+    "seen": 1790594917.489385,
+    "ast_hash": "62de729cc4ecf74f870a45a2d22c02d0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-realtime-collaboration-engineer.md": {
+    "mtime": 1790584913.5587804,
+    "seen": 1790594917.4893873,
+    "ast_hash": "1b4ee159a073345364c347965807ab55",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-rust-refactoring-specialist.md": {
+    "mtime": 1790584913.5727792,
+    "seen": 1790594917.48939,
+    "ast_hash": "3e0081f25e8f4951b2b2f36be074cf1d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-search-relevance-engineer.md": {
+    "mtime": 1790584913.585778,
+    "seen": 1790594917.4893942,
+    "ast_hash": "b66c5249a8078d864c92425f2c0ce3a8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-section-508-specialist.md": {
+    "mtime": 1790584913.6097758,
+    "seen": 1790594917.4893968,
+    "ast_hash": "20941171bcb064ff7076e9286c7f9c15",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-senior-developer.md": {
+    "mtime": 1790584913.628774,
+    "seen": 1790594917.489399,
+    "ast_hash": "9441cafcc956b4b24119dfc58ff9efef",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-software-architect.md": {
+    "mtime": 1790584913.6457725,
+    "seen": 1790594917.4894016,
+    "ast_hash": "231f3cba430c65d0f2bc76cade1fefe5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-solidity-smart-contract-engineer.md": {
+    "mtime": 1790584913.6627707,
+    "seen": 1790594917.489404,
+    "ast_hash": "249c00fe84ddafe5397d2c37fee8e29f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-sre.md": {
+    "mtime": 1790584913.6797693,
+    "seen": 1790594917.4894063,
+    "ast_hash": "6f6ea2bef4ee723e4d60345c7e307c89",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-technical-writer.md": {
+    "mtime": 1790584913.6967676,
+    "seen": 1790594917.489409,
+    "ast_hash": "eaaf16dc7716115928d7fcfc05ab537e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-universal-document-compiler.md": {
+    "mtime": 1790584913.713766,
+    "seen": 1790594917.4894114,
+    "ast_hash": "dc5593fc1133d607090da39099f89367",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-uswds-developer.md": {
+    "mtime": 1790584913.7307644,
+    "seen": 1790594917.489414,
+    "ast_hash": "8fae600d15a009f6dcb21f517da79bd8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-video-streaming-engineer.md": {
+    "mtime": 1790584913.7487628,
+    "seen": 1790594917.4894161,
+    "ast_hash": "73691e1ca8eabf4459c0614d02ee05c6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-voice-ai-integration-engineer.md": {
+    "mtime": 1790584913.7657611,
+    "seen": 1790594917.4894187,
+    "ast_hash": "d2ae1f9620b574a98212251b76a5c2cf",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-webassembly-engineer.md": {
+    "mtime": 1790584913.7827597,
+    "seen": 1790594917.4894211,
+    "ast_hash": "160066889e84c8429fe38fff65e1ba91",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-wechat-mini-program-developer.md": {
+    "mtime": 1790584913.798758,
+    "seen": 1790594917.4894235,
+    "ast_hash": "e1876daf972f663f4861db934407fcd7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-wordpress-performance.md": {
+    "mtime": 1790584913.8167565,
+    "seen": 1790594917.4894264,
+    "ast_hash": "97cc9bf498986021fe48f95b31b03b7c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/engineering-wordpress-shopping-cart.md": {
+    "mtime": 1790584913.8347547,
+    "seen": 1790594917.4894288,
+    "ast_hash": "a97888558067fce9430a61f2df4a5f10",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/esg-sustainability-officer.md": {
+    "mtime": 1790584916.272529,
+    "seen": 1790594917.4894314,
+    "ast_hash": "747f7f22a7750f57243976da423d2d28",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/finance-bookkeeper-controller.md": {
+    "mtime": 1790584913.8507533,
+    "seen": 1790594917.4894338,
+    "ast_hash": "d4990ef7712aa0f6f785eed8112a21d2",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/finance-financial-analyst.md": {
+    "mtime": 1790584913.8667517,
+    "seen": 1790594917.4894364,
+    "ast_hash": "9613dc741c2d500cb0e4a49400af7de8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/finance-fpa-analyst.md": {
+    "mtime": 1790584913.8837502,
+    "seen": 1790594917.4894388,
+    "ast_hash": "50d5fdd42c870f233f260a8e6b49e8b1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/finance-investment-researcher.md": {
+    "mtime": 1790584913.8997486,
+    "seen": 1790594917.4894414,
+    "ast_hash": "3ba9801b566b923de338a6390c6a21d0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/finance-tax-strategist.md": {
+    "mtime": 1790584913.916747,
+    "seen": 1790594917.4894438,
+    "ast_hash": "9a1158114d168e6c47b8bfb2461c8f04",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/game-audio-engineer.md": {
+    "mtime": 1790584913.9667425,
+    "seen": 1790594917.4894462,
+    "ast_hash": "b22ca0abe4c105072407bd5a16ceaf36",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/game-designer.md": {
+    "mtime": 1790584913.9837408,
+    "seen": 1790594917.4894488,
+    "ast_hash": "9588e725d27bbbf2c113c0d8a13ca15a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-3d-scene-developer.md": {
+    "mtime": 1790584914.3087106,
+    "seen": 1790594917.489451,
+    "ast_hash": "5e7a2ddcdfdf199b6e5175b34dfb28bd",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-analyst.md": {
+    "mtime": 1790584914.3337083,
+    "seen": 1790594917.4894536,
+    "ast_hash": "03665869052b4edd977f3b2b1b857952",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-bim-specialist.md": {
+    "mtime": 1790584914.3557062,
+    "seen": 1790594917.489456,
+    "ast_hash": "9f9d022b59145c8ca240b96d98c7456c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-cartography-designer.md": {
+    "mtime": 1790584914.378704,
+    "seen": 1790594917.4894583,
+    "ast_hash": "4acc92b5e635f417bd47fb4c2abe4bc5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-drone-reality-mapping.md": {
+    "mtime": 1790584914.3987024,
+    "seen": 1790594917.489461,
+    "ast_hash": "c52859f66fe124bf2a5a18567eba24c7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-geoai-ml-engineer.md": {
+    "mtime": 1790584914.4227002,
+    "seen": 1790594917.4894633,
+    "ast_hash": "c05317e15e02135883b30274658031c0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-geoprocessing-specialist.md": {
+    "mtime": 1790584914.4486976,
+    "seen": 1790594917.489466,
+    "ast_hash": "b355ece54138daedf42f06f02d7c2de6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-qa-engineer.md": {
+    "mtime": 1790584914.4686959,
+    "seen": 1790594917.4894686,
+    "ast_hash": "fe6383f42fd61115ff65f1d57682016c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-solution-engineer.md": {
+    "mtime": 1790584914.4846942,
+    "seen": 1790594917.4894712,
+    "ast_hash": "7a26c7446312bce32ece482e4636d06b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-spatial-data-engineer.md": {
+    "mtime": 1790584914.5116918,
+    "seen": 1790594917.4894738,
+    "ast_hash": "cc3a08896e2a337b7452f429559d274c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-spatial-data-scientist.md": {
+    "mtime": 1790584914.5376894,
+    "seen": 1790594917.4894764,
+    "ast_hash": "dd6ad3ce59f4b44a6b150e51fde168ea",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-technical-consultant.md": {
+    "mtime": 1790584914.5716863,
+    "seen": 1790594917.4894788,
+    "ast_hash": "1bba61a9c9c8faf9eef8c6f3eb9364fe",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/gis-web-gis-developer.md": {
+    "mtime": 1790584914.5996835,
+    "seen": 1790594917.4894814,
+    "ast_hash": "5cce0cc1e7e9cb5c46e18327227b1ba9",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/godot-gameplay-scripter.md": {
+    "mtime": 1790584914.0007393,
+    "seen": 1790594917.4894838,
+    "ast_hash": "3fcc9deadb4c165f02cc9cbea786c771",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/godot-multiplayer-engineer.md": {
+    "mtime": 1790584914.0167377,
+    "seen": 1790594917.4894862,
+    "ast_hash": "e0f4523717f8da4b78e938fe0bf280fb",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/godot-shader-developer.md": {
+    "mtime": 1790584914.0347362,
+    "seen": 1790594917.4894888,
+    "ast_hash": "f40884bbb3b830a1f43f1414f1378639",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/government-digital-presales-consultant.md": {
+    "mtime": 1790584916.2875273,
+    "seen": 1790594917.4894912,
+    "ast_hash": "7c615328168cd876ab1737392ee4e5f6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/grant-writer.md": {
+    "mtime": 1790584916.301526,
+    "seen": 1790594917.4894938,
+    "ast_hash": "d38d427d2d75e9f54da6aeb0ca68d497",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/healthcare-aging-parent-care-companion.md": {
+    "mtime": 1790584916.3155248,
+    "seen": 1790594917.489496,
+    "ast_hash": "c95bb0525441beda5aaf9596684048ef",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/healthcare-clinical-evidence-agent.md": {
+    "mtime": 1790584914.6246812,
+    "seen": 1790594917.4894986,
+    "ast_hash": "15551132cfe54fed35ccc3f1f1f1601a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/healthcare-customer-service.md": {
+    "mtime": 1790584916.3295236,
+    "seen": 1790594917.4895012,
+    "ast_hash": "ae654b1c181c7744911c9579d456cb62",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/healthcare-innovation-strategist.md": {
+    "mtime": 1790584914.6446795,
+    "seen": 1790594917.4895039,
+    "ast_hash": "b0a7af59c0aa1927c002de721709ba35",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/healthcare-marketing-compliance.md": {
+    "mtime": 1790584916.3445222,
+    "seen": 1790594917.4895062,
+    "ast_hash": "4d450123cfc84ae2be9b95ae2690325e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/healthcare-sovereign-health-systems-agent.md": {
+    "mtime": 1790584914.6666775,
+    "seen": 1790594917.4895086,
+    "ast_hash": "00997d5382f85b85b2be7da87063a149",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/hospitality-guest-services.md": {
+    "mtime": 1790584916.358521,
+    "seen": 1790594917.4895113,
+    "ast_hash": "c3f3c6615c7c0bb1a1bbffc5556b68f5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/hr-onboarding.md": {
+    "mtime": 1790584916.3725195,
+    "seen": 1790594917.4895136,
+    "ast_hash": "405ea8fb8fbe4b507664f998ea158c09",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/identity-graph-operator.md": {
+    "mtime": 1790584916.3875182,
+    "seen": 1790594917.4895163,
+    "ast_hash": "aaf594ff1a9377f2525d6f1bbe7f2361",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/language-translator.md": {
+    "mtime": 1790584916.401517,
+    "seen": 1790594917.489519,
+    "ast_hash": "65f12928b9a3fa6aa80a649c733f17ee",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/legal-billing-time-tracking.md": {
+    "mtime": 1790584916.4165156,
+    "seen": 1790594917.4895213,
+    "ast_hash": "4b26ad6b9e4942a855e840f6fa2f378b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/legal-client-intake.md": {
+    "mtime": 1790584916.4305143,
+    "seen": 1790594917.4895236,
+    "ast_hash": "ab496ddfc28b918b43437f3098a3f112",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/legal-document-review.md": {
+    "mtime": 1790584916.4455128,
+    "seen": 1790594917.4895263,
+    "ast_hash": "ed2c04319dcc29037f864223d9df465e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/level-designer.md": {
+    "mtime": 1790584914.0517344,
+    "seen": 1790594917.489529,
+    "ast_hash": "86b3aa87fcb3580712f34c60b76d4999",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/loan-officer-assistant.md": {
+    "mtime": 1790584916.4595115,
+    "seen": 1790594917.489531,
+    "ast_hash": "b41a7b42b054966cafb86c69ff0768c7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/lsp-index-engineer.md": {
+    "mtime": 1790584916.4735103,
+    "seen": 1790594917.4895337,
+    "ast_hash": "4fadb4dc5631909d08d2a852bb0b72de",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/ma-integration-manager.md": {
+    "mtime": 1790584916.487509,
+    "seen": 1790594917.489536,
+    "ast_hash": "d26dbffd06f9d6256ffd096f827b00fa",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/macos-spatial-metal-engineer.md": {
+    "mtime": 1790584916.0165524,
+    "seen": 1790594917.4895387,
+    "ast_hash": "b66f2dcb920554f6b9d254f67f8677a5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-aeo-foundations.md": {
+    "mtime": 1790584914.6826758,
+    "seen": 1790594917.489541,
+    "ast_hash": "673f970ecedca6c55c551f5cc11f23ff",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-agentic-search-optimizer.md": {
+    "mtime": 1790584914.6996744,
+    "seen": 1790594917.4895437,
+    "ast_hash": "ec04e1b75acd900c0cafec6f44416907",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-ai-citation-strategist.md": {
+    "mtime": 1790584914.7226722,
+    "seen": 1790594917.4895463,
+    "ast_hash": "fea8966b085e696f5fc61c2ccf9c3a1f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-app-store-optimizer.md": {
+    "mtime": 1790584914.7436702,
+    "seen": 1790594917.4895487,
+    "ast_hash": "b3857be0b313be470f647383bcf02b48",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-baidu-seo-specialist.md": {
+    "mtime": 1790584914.7596688,
+    "seen": 1790594917.4895513,
+    "ast_hash": "4086bcdf4d0b588041f91642d26177f2",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-bilibili-content-strategist.md": {
+    "mtime": 1790584914.776667,
+    "seen": 1790594917.4895537,
+    "ast_hash": "da9697c65d360e4e1522eecdb91f5817",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-book-co-author.md": {
+    "mtime": 1790584914.7956655,
+    "seen": 1790594917.4895563,
+    "ast_hash": "4ea9106f7f2af0a9d886d25fa7294a71",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-carousel-growth-engine.md": {
+    "mtime": 1790584914.8306623,
+    "seen": 1790594917.4895585,
+    "ast_hash": "492a67b94df1ec98ee72b58a0440e586",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-china-ecommerce-operator.md": {
+    "mtime": 1790584914.8516603,
+    "seen": 1790594917.489561,
+    "ast_hash": "1a7e22ab35e15f89559c328896484d62",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-china-market-localization-strategist.md": {
+    "mtime": 1790584914.8696585,
+    "seen": 1790594917.4895637,
+    "ast_hash": "164a7bc08f3928ae0b52ed9a67f3ae16",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-content-creator.md": {
+    "mtime": 1790584914.8836572,
+    "seen": 1790594917.4895658,
+    "ast_hash": "21e5f16cfbfbb30ef4910673015c774c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-cross-border-ecommerce.md": {
+    "mtime": 1790584914.9416518,
+    "seen": 1790594917.4895685,
+    "ast_hash": "8d429459d4354f04b6d2d821a97562b1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-douyin-strategist.md": {
+    "mtime": 1790584914.9666495,
+    "seen": 1790594917.4895709,
+    "ast_hash": "028d1c9582725c3bb5006c1663663a44",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-email-strategist.md": {
+    "mtime": 1790584914.983648,
+    "seen": 1790594917.4895735,
+    "ast_hash": "41397e71f682488fc16f616cc85cf7c8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-global-podcast-strategist.md": {
+    "mtime": 1790584915.004646,
+    "seen": 1790594917.4895759,
+    "ast_hash": "8a1664db671faaece05771efe144e82c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-growth-hacker.md": {
+    "mtime": 1790584915.027644,
+    "seen": 1790594917.4895785,
+    "ast_hash": "d468fb17f8fcf74ca0b3b81ec5d59f57",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-instagram-curator.md": {
+    "mtime": 1790584915.0456421,
+    "seen": 1790594917.489581,
+    "ast_hash": "3d34a36ff91a9b4159baea669e5fdf1c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-kuaishou-strategist.md": {
+    "mtime": 1790584915.06964,
+    "seen": 1790594917.4895837,
+    "ast_hash": "1a22a71bed6d555e613154b8a6161a45",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-linkedin-content-creator.md": {
+    "mtime": 1790584915.103637,
+    "seen": 1790594917.4895859,
+    "ast_hash": "7e712a9ee91495164168a02d92424e34",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-livestream-commerce-coach.md": {
+    "mtime": 1790584915.1196353,
+    "seen": 1790594917.4895885,
+    "ast_hash": "f5fd00c6f2fc5b00d904d856e2c11d67",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-multi-platform-publisher.md": {
+    "mtime": 1790584915.133634,
+    "seen": 1790594917.4895911,
+    "ast_hash": "fbd584228a18aa5b3f3aa0dca6a7170d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-podcast-strategist.md": {
+    "mtime": 1790584915.146633,
+    "seen": 1790594917.4895935,
+    "ast_hash": "b58a76af46f762fc350e2f9b95fd4a3c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-pr-communications-manager.md": {
+    "mtime": 1790584915.1616316,
+    "seen": 1790594917.489596,
+    "ast_hash": "dc988bd31ea735ba422f1f5af23b22d2",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-private-domain-operator.md": {
+    "mtime": 1790584915.1746304,
+    "seen": 1790594917.4895985,
+    "ast_hash": "33263f650954faecdcc0c45eee70f15f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-reddit-community-builder.md": {
+    "mtime": 1790584915.188629,
+    "seen": 1790594917.4896011,
+    "ast_hash": "7758b5f6d8ffb2299d9b5c114d11084a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-seo-specialist.md": {
+    "mtime": 1790584915.2026277,
+    "seen": 1790594917.4896035,
+    "ast_hash": "abff5990fbd0c399c94975b8e0b9ea14",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-short-video-editing-coach.md": {
+    "mtime": 1790584915.2166264,
+    "seen": 1790594917.4896083,
+    "ast_hash": "a425810b87e587a293ba7220b9426435",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-social-media-strategist.md": {
+    "mtime": 1790584915.2296252,
+    "seen": 1790594917.4896107,
+    "ast_hash": "2e662e815c160de2213ebdfd480635e4",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-tiktok-strategist.md": {
+    "mtime": 1790584915.243624,
+    "seen": 1790594917.4896133,
+    "ast_hash": "2106d38df28ee10df6c6b57c1bbdfca6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-twitter-engager.md": {
+    "mtime": 1790584915.2586224,
+    "seen": 1790594917.489616,
+    "ast_hash": "0bfb0ff94acff3e4b2291025e24daa7b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-video-optimization-specialist.md": {
+    "mtime": 1790584915.273621,
+    "seen": 1790594917.4896185,
+    "ast_hash": "681f90aa4308ef08c46323da2265224a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-wechat-official-account.md": {
+    "mtime": 1790584915.2876198,
+    "seen": 1790594917.489621,
+    "ast_hash": "3ff4434a2b0639df5c7a5c821703a1cb",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-weibo-strategist.md": {
+    "mtime": 1790584915.3026185,
+    "seen": 1790594917.4896235,
+    "ast_hash": "635d6c29abbdced409b54805826b0a31",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-x-twitter-intelligence-analyst.md": {
+    "mtime": 1790584915.3166173,
+    "seen": 1790594917.489626,
+    "ast_hash": "24a86fa510338886234b290ed32165a8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-xiaohongshu-specialist.md": {
+    "mtime": 1790584915.3306158,
+    "seen": 1790594917.4896283,
+    "ast_hash": "7e8a2cf0861c78c36e68699e0d35b93b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/marketing-zhihu-strategist.md": {
+    "mtime": 1790584915.3466144,
+    "seen": 1790594917.489631,
+    "ast_hash": "33c221d2c8bf39d957cbc5d8b5405e38",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/medical-billing-coding-specialist.md": {
+    "mtime": 1790584916.5025077,
+    "seen": 1790594917.4896336,
+    "ast_hash": "fa26b931f839c9dd178051e789e8ddac",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/narrative-designer.md": {
+    "mtime": 1790584914.068733,
+    "seen": 1790594917.4896362,
+    "ast_hash": "9a98b4d476e4aff65019dc6c5e8f85bb",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/operations-manager.md": {
+    "mtime": 1790584916.5175061,
+    "seen": 1790594917.4896386,
+    "ast_hash": "6dd2b429adcb067253ee1ca61895873c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/organizational-psychologist.md": {
+    "mtime": 1790584916.5315049,
+    "seen": 1790594917.489641,
+    "ast_hash": "7a3a9e6d393f57c823d8f988cb2ba668",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-auditor.md": {
+    "mtime": 1790584915.361613,
+    "seen": 1790594917.4896436,
+    "ast_hash": "40b24995dee464349095ab1356330517",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-creative-strategist.md": {
+    "mtime": 1790584915.3756118,
+    "seen": 1790594917.4896462,
+    "ast_hash": "32eb124fccff16a4d88d9f9f399b8255",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-paid-social-strategist.md": {
+    "mtime": 1790584915.3906102,
+    "seen": 1790594917.4896483,
+    "ast_hash": "d912908c11451df664aa423c2146db36",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-ppc-strategist.md": {
+    "mtime": 1790584915.405609,
+    "seen": 1790594917.489651,
+    "ast_hash": "2c3005bdc1f547d5729e042f7088774c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-programmatic-buyer.md": {
+    "mtime": 1790584915.4196076,
+    "seen": 1790594917.4896536,
+    "ast_hash": "65378b743d4eebd203fb0cef482e0bb9",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-search-query-analyst.md": {
+    "mtime": 1790584915.4336064,
+    "seen": 1790594917.489656,
+    "ast_hash": "b99718612d9197671f00c75c69cb51b1",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/paid-media-tracking-specialist.md": {
+    "mtime": 1790584915.448605,
+    "seen": 1790594917.4896586,
+    "ast_hash": "dd4507867ccc4e81548c24ceb2c6f417",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/personal-growth-mentor.md": {
+    "mtime": 1790584916.5455036,
+    "seen": 1790594917.4896612,
+    "ast_hash": "863ec0b7aeedf66d67f14e3720a6b141",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/product-behavioral-nudge-engine.md": {
+    "mtime": 1790584915.4626036,
+    "seen": 1790594917.4896638,
+    "ast_hash": "de76423c11b6b383a733e973fbc808be",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/product-feedback-synthesizer.md": {
+    "mtime": 1790584915.4786022,
+    "seen": 1790594917.4896662,
+    "ast_hash": "0be96db6744abacc2b444e92daca6048",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/product-manager.md": {
+    "mtime": 1790584915.4936008,
+    "seen": 1790594917.4896688,
+    "ast_hash": "07c3695210c4659001dc23790370cea0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/product-sprint-prioritizer.md": {
+    "mtime": 1790584915.5095992,
+    "seen": 1790594917.4896715,
+    "ast_hash": "83c022b0018f3efa9a65d76e01383d2f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/product-trend-researcher.md": {
+    "mtime": 1790584915.524598,
+    "seen": 1790594917.4896736,
+    "ast_hash": "27eb31af9f0f2a717504715016987ac5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-management-experiment-tracker.md": {
+    "mtime": 1790584915.5395966,
+    "seen": 1790594917.4896762,
+    "ast_hash": "f91ec21e03f7843126fde3cd5ea0af6f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-management-jira-workflow-steward.md": {
+    "mtime": 1790584915.5545952,
+    "seen": 1790594917.4896789,
+    "ast_hash": "a857ff1b6ebf1f1a9cf1b0d5d512db6f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-management-meeting-notes-specialist.md": {
+    "mtime": 1790584915.5685937,
+    "seen": 1790594917.4896815,
+    "ast_hash": "5eab4099062f7c3199bdc93294698245",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-management-project-shepherd.md": {
+    "mtime": 1790584915.5835924,
+    "seen": 1790594917.4896839,
+    "ast_hash": "90ffb3176d5662494b4ec1de1f637492",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-management-studio-operations.md": {
+    "mtime": 1790584915.5975912,
+    "seen": 1790594917.4896863,
+    "ast_hash": "c3d40a06da4095eca2068b63623d2c1e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-management-studio-producer.md": {
+    "mtime": 1790584915.6125898,
+    "seen": 1790594917.4896889,
+    "ast_hash": "82637d751dbe35c1cbc0bf389640fb10",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/project-manager-senior.md": {
+    "mtime": 1790584915.6285882,
+    "seen": 1790594917.489691,
+    "ast_hash": "cc80c6c970008a6fe1f1a7ab1ba8b0e8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/real-estate-buyer-seller.md": {
+    "mtime": 1790584916.5605023,
+    "seen": 1790594917.4896936,
+    "ast_hash": "ced4fd4f9578d7952a6fe5de24ec9c2c",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/recruitment-specialist.md": {
+    "mtime": 1790584916.575501,
+    "seen": 1790594917.4896963,
+    "ast_hash": "832a3151784a5e4c59ceb789735f8d34",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/report-distribution-agent.md": {
+    "mtime": 1790584916.5894995,
+    "seen": 1790594917.489699,
+    "ast_hash": "0a9649cfb9c81ce9ba81897eac56694a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/research-synthesist.md": {
+    "mtime": 1790584915.642587,
+    "seen": 1790594917.4897013,
+    "ast_hash": "ae961a8513c34fd44f423a36bc71766a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/resume-tailor.md": {
+    "mtime": 1790584916.6034982,
+    "seen": 1790594917.4897037,
+    "ast_hash": "2802daea3345ed08cc4975208225fb44",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/retail-customer-returns.md": {
+    "mtime": 1790584916.617497,
+    "seen": 1790594917.4897063,
+    "ast_hash": "3ab18f13403b33f0bf4bdbfe23d4083b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/roblox-avatar-creator.md": {
+    "mtime": 1790584914.0857313,
+    "seen": 1790594917.4897087,
+    "ast_hash": "b4e77cf3b6660da3ad1937c62453f0b7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/roblox-experience-designer.md": {
+    "mtime": 1790584914.1077294,
+    "seen": 1790594917.489711,
+    "ast_hash": "bfd1004cf068fafe0e4d2c117f52b09d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/roblox-systems-scripter.md": {
+    "mtime": 1790584914.1257277,
+    "seen": 1790594917.4897137,
+    "ast_hash": "6f9e88acac0d2dedfc622aca7820e2c4",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-account-strategist.md": {
+    "mtime": 1790584915.6575856,
+    "seen": 1790594917.489716,
+    "ast_hash": "bec0b82ab456702cc3b07bde2b550e50",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-coach.md": {
+    "mtime": 1790584915.6745842,
+    "seen": 1790594917.4897184,
+    "ast_hash": "a3737674fe52ceaf83d94b36a942c4ad",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-data-extraction-agent.md": {
+    "mtime": 1790584916.6314957,
+    "seen": 1790594917.489721,
+    "ast_hash": "9211b05762191b5478eecf0c246caeec",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-deal-strategist.md": {
+    "mtime": 1790584915.6895826,
+    "seen": 1790594917.4897234,
+    "ast_hash": "9cfb8c97002ff84c88e0e80cc4c452e3",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-discovery-coach.md": {
+    "mtime": 1790584915.7115805,
+    "seen": 1790594917.489726,
+    "ast_hash": "f2ecf811ea9a776d133a110dfe21a4dc",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-engineer.md": {
+    "mtime": 1790584915.730579,
+    "seen": 1790594917.4897285,
+    "ast_hash": "05acc642d7291bba001642666c60fad5",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-offer-lead-gen-strategist.md": {
+    "mtime": 1790584915.7465773,
+    "seen": 1790594917.4897459,
+    "ast_hash": "4d116ceb3f43c41657651750814acede",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-outbound-strategist.md": {
+    "mtime": 1790584915.761576,
+    "seen": 1790594917.4897485,
+    "ast_hash": "ad72b0b3e803b0ad5eead50e13536959",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-outreach.md": {
+    "mtime": 1790584916.6464944,
+    "seen": 1790594917.4897509,
+    "ast_hash": "5969b4dbd81bbfb6455435b4679f5537",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-pipeline-analyst.md": {
+    "mtime": 1790584915.7785745,
+    "seen": 1790594917.4897532,
+    "ast_hash": "fdb4b2cffcbc1cd70fe5ec29acbcb056",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/sales-proposal-strategist.md": {
+    "mtime": 1790584915.7965727,
+    "seen": 1790594917.4897559,
+    "ast_hash": "6fca78759f2afd3ae88959b9eaf85a2a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-ai-generated-code-auditor.md": {
+    "mtime": 1790584915.8125713,
+    "seen": 1790594917.4897583,
+    "ast_hash": "6a7e75d4a9dbf00fb3fc0fed2804a8d9",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-appsec-engineer.md": {
+    "mtime": 1790584915.82857,
+    "seen": 1790594917.4897609,
+    "ast_hash": "8bee64c1f4d06b8860de5653ad170bb9",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-architect.md": {
+    "mtime": 1790584915.846568,
+    "seen": 1790594917.489763,
+    "ast_hash": "520319ef386a59c08d042bb5be90c0ea",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-blockchain-security-auditor.md": {
+    "mtime": 1790584915.8625667,
+    "seen": 1790594917.4897656,
+    "ast_hash": "4d032a5383410812d5a56f79ea7b4232",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-cloud-security-architect.md": {
+    "mtime": 1790584915.879565,
+    "seen": 1790594917.489768,
+    "ast_hash": "229ce414636dfaa71d6251d75dce2dc2",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-compliance-auditor.md": {
+    "mtime": 1790584915.8965635,
+    "seen": 1790594917.4897704,
+    "ast_hash": "d00d817525c8372a03526a3c47bcb10f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-incident-responder.md": {
+    "mtime": 1790584915.9135618,
+    "seen": 1790594917.489773,
+    "ast_hash": "8d881224222074a66517b3106ff4e267",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-penetration-tester.md": {
+    "mtime": 1790584915.9295604,
+    "seen": 1790594917.4897757,
+    "ast_hash": "4c566a374cbee70d23658341222bdf93",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-secrets-credential-engineer.md": {
+    "mtime": 1790584915.945559,
+    "seen": 1790594917.4897783,
+    "ast_hash": "9f388e19ff37aaabd1b684babce6415d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-senior-secops.md": {
+    "mtime": 1790584915.9605575,
+    "seen": 1790594917.4897804,
+    "ast_hash": "ea5eb6ccd37fca48c2ec461b6b184f1e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-threat-detection-engineer.md": {
+    "mtime": 1790584915.9755561,
+    "seen": 1790594917.489783,
+    "ast_hash": "b0a7b23c245d77bf0a17098db1302f0e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/security-threat-intelligence-analyst.md": {
+    "mtime": 1790584916.0025537,
+    "seen": 1790594917.4897857,
+    "ast_hash": "ea343500d8740d33ee72edcfba59c7d0",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-chief-of-staff.md": {
+    "mtime": 1790584916.661493,
+    "seen": 1790594917.489788,
+    "ast_hash": "bf27468d979316b11cec86c7b861987f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-civil-engineer.md": {
+    "mtime": 1790584916.6754916,
+    "seen": 1790594917.4897904,
+    "ast_hash": "05592158729355ccc63c64dc6d023d96",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-codebase-archaeologist.md": {
+    "mtime": 1790584916.6904902,
+    "seen": 1790594917.489793,
+    "ast_hash": "5cdc803c28109304eaaacf14266abaca",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-cultural-intelligence-strategist.md": {
+    "mtime": 1790584916.705489,
+    "seen": 1790594917.4897954,
+    "ast_hash": "5bdfac55ede509f779317d86ce4b7684",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-developer-advocate.md": {
+    "mtime": 1790584916.7204876,
+    "seen": 1790594917.4897978,
+    "ast_hash": "7882991ba1946562ba0c0bd5b2e6be46",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-document-generator.md": {
+    "mtime": 1790584916.734486,
+    "seen": 1790594917.4898005,
+    "ast_hash": "f704acadad314f55dfa28ca8bc71026a",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-fedramp-rmf-compliance.md": {
+    "mtime": 1790584916.7494848,
+    "seen": 1790594917.489803,
+    "ast_hash": "8264bffcc6a3bf146b35f99d43626002",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-focus-music-architect.md": {
+    "mtime": 1790584916.7634835,
+    "seen": 1790594917.4898055,
+    "ast_hash": "040ee3e0c263aadea43f3fadaff9cdf7",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-french-consulting-market.md": {
+    "mtime": 1790584916.7784822,
+    "seen": 1790594917.489808,
+    "ast_hash": "f9c0871a07951c0b9d13bd6df625ef4d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-korean-business-navigator.md": {
+    "mtime": 1790584916.7934809,
+    "seen": 1790594917.4898107,
+    "ast_hash": "7db0ac068e6465bac80aecc39d505325",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-master-plan-architect.md": {
+    "mtime": 1790584916.8084793,
+    "seen": 1790594917.4898136,
+    "ast_hash": "27bb039a38a3e4530995b6b537beefbc",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-mcp-builder.md": {
+    "mtime": 1790584916.824478,
+    "seen": 1790594917.4898157,
+    "ast_hash": "24ebf34b01edf3be3ea8d69abbd37738",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-model-qa.md": {
+    "mtime": 1790584916.8394766,
+    "seen": 1790594917.4898183,
+    "ast_hash": "b00923654d0553ddc74ee90faadf7f11",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-pricing-analyst.md": {
+    "mtime": 1790584916.8534753,
+    "seen": 1790594917.489821,
+    "ast_hash": "ca2e26c98d2a659fbc78f68a5c65c9cf",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-salesforce-architect.md": {
+    "mtime": 1790584916.8674738,
+    "seen": 1790594917.4898233,
+    "ast_hash": "f19c05ed7d6ac48674f1b5a2000f749e",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-strategy-duel-agent.md": {
+    "mtime": 1790584916.8834724,
+    "seen": 1790594917.4898257,
+    "ast_hash": "33184cc4d2da32536fe8ac8bde4814bd",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/specialized-workflow-architect.md": {
+    "mtime": 1790584916.8964713,
+    "seen": 1790594917.4898283,
+    "ast_hash": "7b9d3b3254a7f21e74281562c5475b98",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/study-abroad-advisor.md": {
+    "mtime": 1790584916.9124699,
+    "seen": 1790594917.489831,
+    "ast_hash": "5e065cb10465d4ef9069211334d7eff8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/supply-chain-strategist.md": {
+    "mtime": 1790584916.943467,
+    "seen": 1790594917.4898334,
+    "ast_hash": "82e91c3cf2961b6cabdd5cba16952ba8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/support-analytics-reporter.md": {
+    "mtime": 1790584916.9734643,
+    "seen": 1790594917.489836,
+    "ast_hash": "3a82a9229c64d8f252e3a31258ea0cdd",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/support-executive-summary-generator.md": {
+    "mtime": 1790584916.9894626,
+    "seen": 1790594917.4898386,
+    "ast_hash": "c095a9236d2678dbf9f12b153cb1db4d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/support-finance-tracker.md": {
+    "mtime": 1790584917.0044613,
+    "seen": 1790594917.489841,
+    "ast_hash": "56f7a9c9fe1ff0b2852c5ac598dbd935",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/support-infrastructure-maintainer.md": {
+    "mtime": 1790584917.01946,
+    "seen": 1790594917.4898434,
+    "ast_hash": "b55c7e37d1d149cbea52e1efdf39e386",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/support-legal-compliance-checker.md": {
+    "mtime": 1790584917.0344586,
+    "seen": 1790594917.489846,
+    "ast_hash": "c77c763bc687934d13daa2619fd4bc48",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/support-support-responder.md": {
+    "mtime": 1790584917.0494573,
+    "seen": 1790594917.4898486,
+    "ast_hash": "266ddf1b993e0c9b79a9532a45ce486b",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/technical-artist.md": {
+    "mtime": 1790584914.1427262,
+    "seen": 1790594917.489851,
+    "ast_hash": "bef1e75d2db6ed59c893072ad27e9358",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/terminal-integration-specialist.md": {
+    "mtime": 1790584916.0305512,
+    "seen": 1790594917.4898534,
+    "ast_hash": "b0dfb9f1f94037c36d4534789500f470",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-accessibility-auditor.md": {
+    "mtime": 1790584917.0804543,
+    "seen": 1790594917.4898562,
+    "ast_hash": "16d45eddf5211098b2e725625b9a884d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-api-tester.md": {
+    "mtime": 1790584917.1014524,
+    "seen": 1790594917.4898589,
+    "ast_hash": "008e9aa9c6f5aa1cf9033be86c6f5c25",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-evidence-collector.md": {
+    "mtime": 1790584917.1204507,
+    "seen": 1790594917.4898615,
+    "ast_hash": "ec0609de456405ed96e91fbbcfc6d232",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-performance-benchmarker.md": {
+    "mtime": 1790584917.137449,
+    "seen": 1790594917.4898636,
+    "ast_hash": "5d2df2aa3bc0728cb77c2823d163c0d2",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-reality-checker.md": {
+    "mtime": 1790584917.1554475,
+    "seen": 1790594917.4898663,
+    "ast_hash": "dfaf7c2e6ad59afeac173329a25111df",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-test-automation-engineer.md": {
+    "mtime": 1790584917.1884444,
+    "seen": 1790594917.4898689,
+    "ast_hash": "6be8ce57bf7a08ca42acf17cf8268410",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-test-results-analyzer.md": {
+    "mtime": 1790584917.2114422,
+    "seen": 1790594917.4898713,
+    "ast_hash": "3c24357a2b42c59ed30220a0ada128a6",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-tool-evaluator.md": {
+    "mtime": 1790584917.2294407,
+    "seen": 1790594917.489874,
+    "ast_hash": "99cf0284c74ee1c4675535c60045c028",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/testing-workflow-optimizer.md": {
+    "mtime": 1790584917.2504387,
+    "seen": 1790594917.4898765,
+    "ast_hash": "6960fdea43cedc621c4d9438a28ded22",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unity-architect.md": {
+    "mtime": 1790584914.1607244,
+    "seen": 1790594917.489879,
+    "ast_hash": "1e4c7ede11857a426c94e3238771f39d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unity-editor-tool-developer.md": {
+    "mtime": 1790584914.176723,
+    "seen": 1790594917.4898813,
+    "ast_hash": "4bce0854cc136c913f4f6784b77455b8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unity-multiplayer-engineer.md": {
+    "mtime": 1790584914.1927214,
+    "seen": 1790594917.489884,
+    "ast_hash": "0e88fa0e31b52350d8b4261dbf8cee63",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unity-shader-graph-artist.md": {
+    "mtime": 1790584914.2107198,
+    "seen": 1790594917.4898865,
+    "ast_hash": "84e4bd20ae0c05aa5a0974b7fcd6d289",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unreal-multiplayer-architect.md": {
+    "mtime": 1790584914.229718,
+    "seen": 1790594917.489889,
+    "ast_hash": "3f200c510abee1ece763c7d82d82a8e3",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unreal-systems-engineer.md": {
+    "mtime": 1790584914.2467165,
+    "seen": 1790594917.4898915,
+    "ast_hash": "c77a04c0794b228dbce03a9aff35ef15",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unreal-technical-artist.md": {
+    "mtime": 1790584914.2657146,
+    "seen": 1790594917.4898942,
+    "ast_hash": "d322bb2a31c0280cc77d19ac3ded96f8",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/unreal-world-builder.md": {
+    "mtime": 1790584914.2837129,
+    "seen": 1790594917.4898965,
+    "ast_hash": "795a010476cf338724522e3823e2727d",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/visionos-spatial-engineer.md": {
+    "mtime": 1790584916.0455496,
+    "seen": 1790594917.489899,
+    "ast_hash": "ea3478d576400ccf4073061fc8473803",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/xr-cockpit-interaction-specialist.md": {
+    "mtime": 1790584916.0595484,
+    "seen": 1790594917.4899013,
+    "ast_hash": "76fe2fd5bc8f9856a417f1dbb843b779",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/xr-immersive-developer.md": {
+    "mtime": 1790584916.0735471,
+    "seen": 1790594917.489904,
+    "ast_hash": "7d3acd34745b6bb96535799d967c8145",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/xr-interface-architect.md": {
+    "mtime": 1790584916.0875459,
+    "seen": 1790594917.4899065,
+    "ast_hash": "3e07baea4af417942407333039f1d23f",
+    "semantic_hash": ""
+  },
+  ".opencode/agents/zk-steward.md": {
+    "mtime": 1790584916.9574656,
+    "seen": 1790594917.4899087,
+    "ast_hash": "9c25df8519ac63efbdd3d5035db4514e",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790594864.470324,
+    "seen": 1790594917.4899113,
+    "ast_hash": "1cb4ce2a7f3eecdbed652da9dfe2cd5e",
+    "semantic_hash": ""
+  }
+}
