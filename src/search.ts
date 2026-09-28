@@ -2,7 +2,7 @@
 // No external dependencies: split query into tokens, score each agent's
 // name (x8), title (x4), description (x2), category (x3) for every token hit.
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 export type AgentNode = {
@@ -56,7 +56,8 @@ export function buildGraph(root: string): AgentGraph {
   // graphify neighbor data (built by `graphify update .`); optional but enriches results.
   // graph.json is node-link format (nodes/links); agent file-level nodes have
   // labels ending in .md. Cross-file links are rare — when missing, neighbors
-  // fall back to same-category agents.
+  // fall back to same-category agents. In serverless bundles the graph is not
+  // shipped (cold-start size), so this silently skips there.
   let neighborsByName = new Map<string, string[]>();
   const gp = path.join(root, "graphify-out", "graph.json");
   try {
@@ -160,5 +161,8 @@ export function searchAgents(
 export function agentMarkdownPath(root: string, name: string): string {
   // name is already validated as [a-z0-9-] via lookup; still keep it inert
   const safe = name.replace(/[^a-z0-9-]/g, "");
+  // staged serverless bundle (api/_data/agents) or repo layout (.opencode/agents)
+  const staged = path.join(root, "agents");
+  if (existsSync(staged)) return path.join(staged, `${safe}.md`);
   return path.join(root, ".opencode", "agents", `${safe}.md`);
 }

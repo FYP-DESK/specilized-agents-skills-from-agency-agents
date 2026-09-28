@@ -1,17 +1,18 @@
 // Vercel serverless entry — mounts the Elysia app at every route.
 // Local dev keeps using `bun run src/server.ts`; Vercel uses this file.
+//
+// app.handle is invoked through an arrow wrapper so it stays bound to the
+// app instance. The data files it reads (AGENTS_INDEX.json, .opencode/agents/**,
+// public/index.html, graphify-out/graph.json) are added to the lambda bundle
+// via vercel.json functions.includeFiles — their paths are computed at
+// runtime, invisible to Vercel's static file tracer.
 
-import { Elysia } from "elysia";
 import { app } from "../src/app";
 
-export const GET = app.handle;
-export const POST = app.handle;
-export const HEAD = app.handle;
-
-// Vercel's Node runtime import shape (fallback for non-edge deployments)
 export default async function handler(request: Request) {
   return app.handle(request);
 }
 
-// keep Elysia referenced for type inference on the handle export
-void Elysia;
+export const GET = handler;
+export const POST = handler;
+export const HEAD = handler;

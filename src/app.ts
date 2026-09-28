@@ -1,5 +1,10 @@
 // The Elysia app, runtime-agnostic: imported by src/server.ts (local listen)
 // and api/[[...route]].ts (Vercel serverless). No .listen() here.
+//
+// Data resolution order:
+//   1. AGENTS_ROOT env var (explicit override)
+//   2. api/_data bundle (staged by scripts/build-serverless-data.mjs on Vercel)
+//   3. repo root (local dev; graphify neighbors included)
 
 import path from "node:path";
 import { existsSync, readFileSync } from "node:fs";
@@ -7,24 +12,28 @@ import { Elysia } from "elysia";
 
 import { buildGraph, searchAgents, agentMarkdownPath } from "./search";
 
-// Resolve the repo root in every environment (local Bun, Vercel serverless
-// bundle). The marker file AGENTS_INDEX.json is always at the root.
+const MARKER = "AGENTS_INDEX.json";
+
 function findRoot(): string {
-  const marker = "AGENTS_INDEX.json";
-  const candidates = [
-    process.env.AGENTS_ROOT,
-    process.cwd(),
-    path.resolve(process.cwd(), ".."),
-  ].filter(Boolean) as string[];
-  for (const c of candidates) {
-    if (existsSync(path.join(c, marker))) return c;
+  if (process.env.AGENTS_ROOT && existsSync(path.join(process.env.AGENTS_ROOT, MARKER))) {
+    return process.env.AGENTS_ROOT;
   }
-  let dir = process.cwd();
+  // Vercel function bundle: cwd is /var/task/player/<...>/ (deploy output),
+  // the staged bundle sits at api/_data relative to the repo layout.
+  const cwd = process.cwd();
+  const staged = path.resolve(cwd, "api/_data");
+  if (existsSync(path.join(staged, MARKER))) return staged;
+  // Local dev: repo root is one or two levels up from src/.
+  for (const candidate of [cwd, path.resolve(cwd, "..")]) {
+    if (existsSync(path.join(candidate, MARKER))) return candidate;
+  }
+  // Last resort: walk up.
+  let dir = cwd;
   for (let i = 0; i < 8 && dir !== path.parse(dir).root; i++) {
-    if (existsSync(path.join(dir, marker))) return dir;
+    if (existsSync(path.join(dir, MARKER))) return dir;
     dir = path.resolve(dir, "..");
   }
-  return process.cwd();
+  return cwd;
 }
 
 const root = findRoot();
@@ -41,6 +50,12 @@ const app = new Elysia()
     // this serves the built UI (run `bun run ui` once after cloning).
     const file = path.join(root, "public", "index.html");
     if (!existsSync(file)) {
+      const staticFile = path.join(root, "..", "public", "index.html");
+      if (existsSync(staticFile)) {
+        return new Response(readFileSync(staticFile), {
+          headers: { "content-type": "text/html; charset=utf-8" },
+        });
+      }
       return new Response(
         "<p>UI not built yet. Run <code>node scripts/build-graph-html.mjs</code> in the repo, then restart.</p>",
         { headers: { "content-type": "text/html; charset=utf-8" } },
@@ -55,11 +70,11 @@ const app = new Elysia()
     ok: true,
     agents: graph.nodes.length,
     communities: graph.communities.length,
-    version: 2,
+    version: 3,
   }))
 
   .get("/api/agents", () => {
-    const idx = JSON.parse(readFileSync(path.join(root, "AGENTS_INDEX.json"), "utf8"));
+    const idx = JSON.parse(readFileSync(path.join(root, MARKER), "utf8"));
     return idx;
   })
 

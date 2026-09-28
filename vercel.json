@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "node scripts/build-graph-html.mjs",
+  "buildCommand": "node scripts/build-graph-html.mjs && node scripts/build-serverless-data.mjs",
   "outputDirectory": "public",
   "headers": [
     {

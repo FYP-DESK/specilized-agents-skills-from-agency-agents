@@ -40,3 +40,6 @@ public/index.html
 graphify-out/cache/
 graphify-out/.graphify*
 .vercel
+
+# serverless data bundle (built, not committed)
+api/_data/
