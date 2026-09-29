@@ -19,7 +19,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { Elysia } from "elysia";
 
-import { buildGraph, searchAgents, agentMarkdownPath } from "./search.js";
+import { buildGraph, searchAgents, agentMarkdownPath, diagnoseQuery } from "./search.js";
 
 const MARKER = "AGENTS_INDEX.json";
 
@@ -54,6 +54,60 @@ const byName = new Map(graph.nodes.map((n) => [n.name, n]));
 
 function errorJson(status: number, message: string, hint?: string) {
   return { error: true, status, message, ...(hint ? { hint } : {}) };
+}
+
+// LLM-descriptive 404: name every token that was dropped and why, then hand
+// back a corrected query the caller can retry with immediately.
+function noMatchError(query: string) {
+  const d = diagnoseQuery(query);
+  const notes: string[] = [];
+  if (d.droppedStopwords.length)
+    notes.push(
+      `these words are stopwords and score nothing: ${d.droppedStopwords.join(", ")} — never put verbs or sentences in q=`,
+    );
+  if (d.droppedTooShort.length)
+    notes.push(
+      `these tokens are too short (≤2 chars) and were dropped: ${d.droppedTooShort.join(", ")}${d.droppedTooShort.some((t) => ["ui", "ux", "ai", "ml", "qa", "db"].includes(t)) ? " — use the full word instead (interface→ui-design, artificial-intelligence→machine-learning)" : ""}`,
+    );
+  if (d.tokens.length === 0)
+    notes.push("every token was filtered out — nothing was scored at all");
+  else
+    notes.push(
+      `tokens actually scored: ${d.tokens.join(", ")} — match words that appear in agent NAMES (e.g. 'frontend-developer', 'security-auditor')`,
+    );
+
+  let suggestedQuery: string | null = null;
+  const tried = new Set<string>();
+  for (const [tokens, expandShort] of [
+    [d.tokens, false],
+    [[...d.tokens, ...d.droppedTooShort.map((t) => ({ ui: "design", ux: "design", ai: "learning", ml: "learning" }[t] ?? t))], true],
+  ] as Array<[string[], boolean]>) {
+    if (!tokens.length) continue;
+    const key = tokens.join("+");
+    if (tried.has(key)) continue;
+    tried.add(key);
+    const [best] = searchAgents(graph, tokens.join(" "), 1);
+    if (best) {
+      suggestedQuery = tokens.join("+");
+      break;
+    }
+    if (expandShort) break;
+  }
+  if (!suggestedQuery && d.tokens.length > 1) suggestedQuery = d.tokens.slice(0, 2).join("+");
+
+  const alternates = searchAgents(graph, d.tokens.join(" ") || query, 3);
+  return {
+    error: true,
+    status: 404,
+    message:
+      d.tokens.length === 0
+        ? `no agent matches '${query}' — every token was dropped before scoring`
+        : `no agent matches '${query}'`,
+    why: notes,
+    ...(suggestedQuery ? { suggestedQuery, retry: `/api/agent?q=${encodeURIComponent(suggestedQuery)}` } : {}),
+    ...(alternates.length ? { alternates: alternates.map((a) => ({ name: a.name, score: Number(a.score.toFixed(4)), description: a.description })) } : {}),
+    hint: "query rules: 2-4 keywords, no sentences, no verbs, use words from agent names — GET /api/categories to browse",
+  };
 }
 
 const app = new Elysia()
@@ -138,7 +192,7 @@ const app = new Elysia()
     const [best] = searchAgents(graph, q, 5);
     if (!best) {
       set.status = 404;
-      return errorJson(404, `no agent matches '${query.q}'`, "try shorter or broader keywords, or GET /api/categories");
+      return noMatchError(q);
     }
 
     const instructions = readFileSync(agentMarkdownPath(root, best.name), "utf8");

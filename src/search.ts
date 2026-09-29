@@ -1,6 +1,13 @@
 // Weighted keyword scoring over AGENTS_INDEX.json + graphify neighbor data.
 // No external dependencies: split query into tokens, score each agent's
 // name (x8), title (x4), description (x2), category (x3) for every token hit.
+//
+// Hardened scorer (v4):
+// - short technical tokens (ai, ml, ui, ux, qa, db, 3d, …) are WHITELISTED
+//   instead of silently dropped — they used to make ?q=ai return nothing
+// - stopword filtering keeps the natural-language verbs out, but tokenize()
+//   now also reports WHAT it dropped so the API can teach the caller how to
+//   fix a bad query (see diagnoseQuery)
 
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -18,6 +25,8 @@ type GraphifyNode = {
   id?: unknown;
   label?: unknown;
   file_type?: unknown;
+  tags?: unknown;
+  summary?: unknown;
 };
 
 type GraphifyLink = {
@@ -28,6 +37,7 @@ type GraphifyLink = {
 type GraphifyGraph = {
   nodes?: GraphifyNode[];
   links?: GraphifyLink[];
+  communities?: unknown;
 };
 
 type RawIndexEntry = {
@@ -44,11 +54,39 @@ export type AgentGraph = {
   communities: string[];
 };
 
-const STOPWORDS = new Set([
+export const STOPWORDS = new Set([
   "a", "an", "and", "are", "as", "at", "be", "build", "by", "can", "create",
   "do", "for", "from", "how", "i", "in", "into", "is", "it", "me", "my", "need",
   "of", "on", "or", "that", "the", "this", "to", "want", "with", "work",
 ]);
+
+// Technical tokens that MUST survive despite being ≤2 characters. Anything
+// matching an agent name/title matters more than its length.
+const SHORT_ALLOWED = new Set([
+  "ai", "ml", "ui", "ux", "qa", "db", "os", "pm", "3d", "go", "js", "ts",
+  "vr", "ar", "ci", "cd", "crm", "erp", "api", "sdk", "seo", "llm", "gpt",
+  "nlp", "css", "php", "c", "r", "k8s",
+]);
+
+export type QueryDiagnostics = {
+  tokens: string[];        // what actually got scored
+  droppedStopwords: string[]; // natural-language words that score nothing
+  droppedTooShort: string[];  // ≤2-char tokens not on the allowlist
+  suggestedQuery: string | null; // a tightened query, when the original was weak
+};
+
+export function diagnoseQuery(query: string): QueryDiagnostics {
+  const tokens: string[] = [];
+  const droppedStopwords: string[] = [];
+  const droppedTooShort: string[] = [];
+  for (const t of query.toLowerCase().split(/[^a-z0-9]+/)) {
+    if (!t) continue;
+    if (STOPWORDS.has(t)) droppedStopwords.push(t);
+    else if (t.length <= 2 && !SHORT_ALLOWED.has(t)) droppedTooShort.push(t);
+    else tokens.push(t);
+  }
+  return { tokens, droppedStopwords, droppedTooShort, suggestedQuery: null };
+}
 
 export function buildGraph(root: string): AgentGraph {
   const idx = JSON.parse(readFileSync(path.join(root, "AGENTS_INDEX.json"), "utf8"));
@@ -128,11 +166,8 @@ export function buildGraph(root: string): AgentGraph {
   return { nodes, categories, communities: Object.keys(categories) };
 }
 
-function tokenize(q: string): string[] {
-  return q
-    .toLowerCase()
-    .split(/[^a-z0-9]+/)
-    .filter((t) => t.length > 2 && !STOPWORDS.has(t));
+export function tokenize(q: string): string[] {
+  return diagnoseQuery(q).tokens;
 }
 
 export function searchAgents(
@@ -150,12 +185,13 @@ export function searchAgents(
     const cat = node.category.toLowerCase();
     let score = 0;
     for (const t of tokens) {
-      const word = new RegExp(`\\b${t}\\b`);
+      const word = new RegExp(`\\b${escapeRe(t)}\\b`);
       if (word.test(name)) score += 8;
       else if (name.includes(t)) score += 4;
       if (word.test(title)) score += 4;
-      if (word.test(desc)) score += 2;
       if (word.test(cat)) score += 3;
+      if (word.test(desc)) score += 2;
+      else if (desc.includes(t) && t.length >= 4) score += 1; // stem-ish fallback
     }
     return { ...node, score: score / tokens.length };
   });
@@ -164,6 +200,10 @@ export function searchAgents(
     .filter((n) => n.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, top);
+}
+
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 export function agentMarkdownPath(root: string, name: string): string {

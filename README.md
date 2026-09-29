@@ -49,8 +49,36 @@ only the one markdown file it needs.
 | `GET /api/agent?q=keywords&raw=1` | Best match markdown only |
 
 Search is weighted keyword scoring: name ×8, category ×3, title ×4,
-description ×2, stopwords removed. `neighbors` come from the graphify graph
+description ×2, stopwords removed — but short technical tokens (`ai`, `ml`,
+`ui`, `ux`, `qa`, `db`, `3d`, …) are **whitelisted**, not dropped. A
+content fallback adds minor weight when a ≥4-char token appears inside a
+description word. `neighbors` come from the graphify graph
 (`graphify-out/graph.json`), falling back to same-category agents.
+
+### When a query misses — the error teaches, not scolds
+
+A 404 for `?q=` returns **why** the query failed and **how to fix it**:
+
+```json
+{
+  "error": true,
+  "status": 404,
+  "message": "no agent matches '…'",
+  "why": [
+    "these words are stopwords and score nothing: build, me, a — never put verbs or sentences in q=",
+    "tokens actually scored: design, web, app — match words that appear in agent NAMES"
+  ],
+  "suggestedQuery": "design+ui",
+  "retry": "/api/agent?q=design%2Bui",
+  "hint": "query rules: 2-4 keywords, no sentences, no verbs, use words from agent names — GET /api/categories to browse"
+}
+```
+
+An LLM that gets a 404 can retry `suggestedQuery` unprompted — no human
+needed. This is verified behavior: the old trap query
+`build+me+a+ui+design+for+the+web+app` used to return the WRONG agent
+(`marketing-app-store-optimizer`); it now returns `design-ui-designer`, and
+`?q=ai` (previously zero results) returns `engineering-ai-engineer`.
 
 ---
 
